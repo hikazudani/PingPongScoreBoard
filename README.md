@@ -18,7 +18,7 @@ Para preencher a tabela de resultados, cada abordagem deve ser submetida a dois 
 |------------------------------|-----------------|-------------------|
 | remember                     | Não sobrevive   | Não sobrevive     |
 | ViewModel + mutableStateOf   | Sobrevive       | Não sobrevive     |
-| ViewModel + StateFlow        |                 |                   |
+| ViewModel + StateFlow        | Sobrevive       | Não sobrevive     |
 | ViewModel + SavedStateHandle |                 |                   |
 
 ## Perguntas

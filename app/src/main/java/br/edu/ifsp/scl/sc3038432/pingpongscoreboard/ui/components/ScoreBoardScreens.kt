@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
@@ -15,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import br.edu.ifsp.scl.sc3038432.pingpongscoreboard.ui.theme.PingPongScoreBoardTheme
+import br.edu.ifsp.scl.sc3038432.pingpongscoreboard.viewmodel.ScoreBoardFlowViewModel
 import br.edu.ifsp.scl.sc3038432.pingpongscoreboard.viewmodel.ScoreBoardStateViewModel
 
 @Composable
@@ -64,6 +66,24 @@ fun ScoreBoardStateScreen(
     ScoreBoardContent(
         pointsA = vm.pointsA,
         pointsB = vm.pointsB,
+        onPointA = vm::addPointA,
+        onPointB = vm::addPointB,
+        onReset = vm::reset,
+        modifier = modifier
+    )
+}
+
+// ViewModel + StateFlow
+@Composable
+fun ScoreBoardFlowScreen(
+    modifier: Modifier = Modifier,
+    vm: ScoreBoardFlowViewModel = viewModel()
+) {
+    val uiState by vm.uiState.collectAsState()
+
+    ScoreBoardContent(
+        pointsA = uiState.pointsA,
+        pointsB = uiState.pointsB,
         onPointA = vm::addPointA,
         onPointB = vm::addPointB,
         onReset = vm::reset,
