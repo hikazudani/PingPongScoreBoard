@@ -17,7 +17,7 @@ Para preencher a tabela de resultados, cada abordagem deve ser submetida a dois 
 | Abordagem                    | Rotação de Tela | Morte do Processo |
 |------------------------------|-----------------|-------------------|
 | remember                     | Não sobrevive   | Não sobrevive     |
-| ViewModel + mutableStateOf   |                 |                   |
+| ViewModel + mutableStateOf   | Sobrevive       | Não sobrevive     |
 | ViewModel + StateFlow        |                 |                   |
 | ViewModel + SavedStateHandle |                 |                   |
 
