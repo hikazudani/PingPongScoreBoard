@@ -11,6 +11,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import br.edu.ifsp.scl.sc3038432.pingpongscoreboard.ui.components.ScoreBoardFlowScreen
 import br.edu.ifsp.scl.sc3038432.pingpongscoreboard.ui.components.ScoreBoardRememberScreen
+import br.edu.ifsp.scl.sc3038432.pingpongscoreboard.ui.components.ScoreBoardSavedScreen
 import br.edu.ifsp.scl.sc3038432.pingpongscoreboard.ui.components.ScoreBoardStateScreen
 import br.edu.ifsp.scl.sc3038432.pingpongscoreboard.ui.components.TitleBox
 import br.edu.ifsp.scl.sc3038432.pingpongscoreboard.ui.theme.PingPongScoreBoardTheme
@@ -26,7 +27,8 @@ class MainActivity : ComponentActivity() {
                         TitleBox()
                         //ScoreBoardRememberScreen() //remember
                         //ScoreBoardStateScreen() // ViewModel + mutableStateOf
-                        ScoreBoardFlowScreen() // ViewModel + StateFlow
+                        //ScoreBoardFlowScreen() // ViewModel + StateFlow
+                        ScoreBoardSavedScreen() // ViewModel + SavedStateHandle
                     }
                 }
             }

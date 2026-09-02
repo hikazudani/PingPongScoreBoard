@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import br.edu.ifsp.scl.sc3038432.pingpongscoreboard.ui.theme.PingPongScoreBoardTheme
 import br.edu.ifsp.scl.sc3038432.pingpongscoreboard.viewmodel.ScoreBoardFlowViewModel
+import br.edu.ifsp.scl.sc3038432.pingpongscoreboard.viewmodel.ScoreBoardSavedViewModel
 import br.edu.ifsp.scl.sc3038432.pingpongscoreboard.viewmodel.ScoreBoardStateViewModel
 
 @Composable
@@ -78,6 +79,23 @@ fun ScoreBoardStateScreen(
 fun ScoreBoardFlowScreen(
     modifier: Modifier = Modifier,
     vm: ScoreBoardFlowViewModel = viewModel()
+) {
+    val uiState by vm.uiState.collectAsState()
+
+    ScoreBoardContent(
+        pointsA = uiState.pointsA,
+        pointsB = uiState.pointsB,
+        onPointA = vm::addPointA,
+        onPointB = vm::addPointB,
+        onReset = vm::reset,
+        modifier = modifier
+    )
+}
+
+@Composable
+fun ScoreBoardSavedScreen(
+    modifier: Modifier = Modifier,
+    vm: ScoreBoardSavedViewModel = viewModel()
 ) {
     val uiState by vm.uiState.collectAsState()
 
